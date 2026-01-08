@@ -44,7 +44,7 @@ templates/
 
 ### Step 1: Clone Repository
 ```bash
-git clone <repository_url>
+git clone https://github.com/Thesmitmungara/product-management-django-assignment
 cd product_management
 ```
 

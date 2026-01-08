@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Management</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        th {
+            background: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Product List</h2>
+
+<p>
+    Logged in as: <strong>{{ request.user.username }}</strong> |
+    <a href="/logout/">Logout</a>
+</p>
+
+{% if is_admin %}
+    <p><a href="/add/">➕ Add Product</a></p>
+{% endif %}
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for product in products %}
+    <tr>
+        <td>
+            <a href="/product/{{ product.id }}/">
+                {{ product.name }}
+            </a>
+        </td>
+        <td>{{ product.price }}</td>
+        <td>
+            {% if is_admin %}
+                <a href="/edit/{{ product.id }}/">Edit</a> |
+                <a href="/delete/{{ product.id }}/">Delete</a>
+            {% else %}
+                View Only
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

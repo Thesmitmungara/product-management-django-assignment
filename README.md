@@ -46,19 +46,66 @@ templates/
 ```bash
 git clone <repository_url>
 cd product_management
-###
+```
 
-### Step 1: Clone Repository
+### Step 2: Create Virtual Environment
 ```bash
-git clone <repository_url>
-cd product_management
+python -m venv venv
+venv\Scripts\activate
+```
 
-### Step 1: Clone Repository
+### Step 3: Install Dependencies
 ```bash
-git clone <repository_url>
-cd product_management
+pip install -r requirements.txt
+```
 
-### Step 1: Clone Repository
+### Step 4: Run Migrations
 ```bash
-git clone <repository_url>
-cd product_management
+python manage.py migrate
+```
+
+### Step 5: Create Superuser
+```bash
+python manage.py createsuperuser
+```
+
+### Step 6: Start Server
+```bash
+python manage.py runserver
+```
+
+## Open the Application
+After starting the development server, open the application in your browser:
+
+http://127.0.0.1:8000/
+
+---
+
+### Authorization Rules
+- **Admin users** can add, edit, and delete products (full CRUD access).
+- **Normal users** have read-only access and can only view product information.
+- All authorization and permission checks are enforced at the **backend level**.
+
+---
+
+### Assumptions
+- SQLite is sufficient for the scope of this assignment.
+- The user interface is intentionally kept minimal and clean as per requirements.
+- Django’s built-in authentication system is used to ensure secure user management.
+
+---
+
+### Notes
+This project was developed as part of an assessment task.  
+The primary focus areas include:
+- Authentication and authorization
+- Clean and maintainable project structure
+- Correct implementation of CRUD operations
+
+
+
+
+
+
+
+
